@@ -1,0 +1,63 @@
+/***
+* @file .java
+* @author Felix
+* @date 1 Dec 2015
+* @see Cell.java
+* @This is a class extends Cell class and generate the number of mines and position
+*/
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+
+public class GeneratingMine {
+	public int squareX;
+	public int squareY;
+	public int totalMine;
+	
+	/**
+	 * @param squareX
+	 * @param squareY
+	 * @param totalMine
+	 * @return null
+	 * @ This is a method of creating a 4 dimensional ArrayList 
+	 * to store the position of squares in X, position of squares in Y , check is it revealed and check is it already exist a mine
+	 */
+	public static void creatingMine(int squareX, int squareY , int totalMine){
+		int [][][][] minePosition = new int[squareX][squareY][2][2];//[squares in X][position of squares in Y][check is it revealed][check is it already exist a mine]
+		int randomX;
+		int randomY;
+		boolean isRevealed;
+		boolean isAMine;
+		Random random = new Random();
+		int noOfMine = totalMine;
+		
+		for(int i = 0 ;i < totalMine;i++){
+
+			randomX = random.nextInt(squareX);
+			randomY = random.nextInt(squareY);
+			
+			for(noOfMine = totalMine;noOfMine < totalMine;){
+				if(isRevealed = false){
+					if(isAMine = true){
+						minePosition[randomX][randomY][0][1] = noOfMine;
+					}else {
+						minePosition[randomX][randomY][0][0] = noOfMine;
+						noOfMine--;
+					}
+
+				}else if(isRevealed = true){
+					if(isAMine = true){
+						minePosition[randomX][randomY][1][1] = noOfMine;
+					}else {
+						minePosition[randomX][randomY][1][0] = noOfMine;
+						noOfMine--;
+					}
+
+				}
+			}
+		}
+		
+		
+	}
+}
